@@ -8,6 +8,7 @@
 
 float angle = 0.0;
 float tx,ty = 0.0f;
+float sx = 1.0f,sy = 1.0f;
 int sentido = 1;
 
 /* Initialize OpenGL Graphics */
@@ -16,6 +17,8 @@ void initGL() {
    glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Black and opaque
 
 
+  printf("Valor de sx: %f", sx);
+  printf("Valor de sy: %f", sy);
 
    printf("----- Menu ----- \n");
    printf("Press A or a to rotate+ \n");
@@ -37,8 +40,8 @@ void display() {
    glLoadIdentity();                // Reset the model-view matrix
 
 
+   glScalef(sx, sy, 1.0f);
    glTranslatef(tx, ty, 0.0f);      //Translate entire world
-
 
    //Local transformations
    glPushMatrix();
@@ -141,38 +144,78 @@ void keyboard(unsigned char key, int x, int y)
     switch (key) {
             case 'A':
             case 'a':
-                     if(angle > 360.0f ) angle = 0.0f;
                      angle += 1.0f;
+                     if(angle > 360.0f ) angle = 0.0f;
                      break;
             case 'S':
             case 's':
-                     if(angle < 0.0f) angle = 360.0f;
                      angle -= 1.0f;
+                     if(angle < 0.0f) angle = 360.0f;
                      break;
 
             case 'Q':
             case 'q':
-                     if(tx < -2.3f) tx = 2.3f;
                      tx -= 0.1f;
+                     if(tx < -2.3f) tx = 2.3f;
                      break;
 
             case 'W':
             case 'w':
-                     if(tx > 2.3f) tx = -2.3f;
                      tx += 0.1f;
+                     if(tx > 2.3f) tx = -2.3f;
                      break;
 
             case 'Z':
             case 'z':
-                     if(ty < -2.1f) ty = 2.1f;
                      ty -= 0.1f;
+                     if(ty < -2.1f) ty = 2.1f;
                      break;
 
             case 'X':
             case 'x':
-                     if(ty > 2.1f) ty = -2.1f;
                      ty += 0.1f;
+                     if(ty > 2.1f) ty = -2.1f;
                      break;
+
+             case 'E':
+             case 'e':
+                      sx -= 0.1f;
+                      if(sx < 0.0f) sx = 0.0f;
+                      break;
+
+             case 'R':
+             case 'r':
+                     sx += 0.1f;
+                     if(sx > 10.0f) sx = 10.0f;
+                     break;
+
+           case 'D':
+           case 'd':
+                    sy -= 0.1f;
+                    if(sy < 0.0f) sy = 0.0f;
+                    break;
+
+           case 'F':
+           case 'f':
+                   sy += 0.1f;
+                   if(sy > 10.0f) sy = 10.0f;
+                   break;
+
+           case 'C':
+           case 'c':
+                   sy -= 0.1f;
+                   if(sy < 0.0f) sy = 0.0f;
+                   sx -= 0.1f;
+                   if(sx < 0.0f) sx = 0.0f;
+                    break;
+
+           case 'V':
+           case 'v':
+                   sy += 0.1f;
+                   if(sy > 10.0f) sy = 10.0f;
+                   sx += 0.1f;
+                   if(sx > 10.0f) sx = 10.0f;
+                   break;
 
 
 

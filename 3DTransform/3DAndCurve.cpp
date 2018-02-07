@@ -11,6 +11,8 @@ float tx,ty = 0.0f;
 float sx = 1.0f,sy = 1.0f;
 int sentido = 1;
 
+
+
 /* Initialize OpenGL Graphics */
 void initGL() {
    // Set "clearing" or background color

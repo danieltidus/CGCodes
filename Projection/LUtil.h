@@ -18,15 +18,6 @@ extern GLfloat aspect;
 extern GLfloat angle;
 extern char text[30];
 
-//Viewport mode
-enum ViewPortMode
-{
-    VIEWPORT_MODE_FULL,
-    VIEWPORT_MODE_HALF_CENTER,
-    VIEWPORT_MODE_HALF_TOP,
-    VIEWPORT_MODE_QUAD,
-    VIEWPORT_MODE_RADAR
-};
 
 float convertToRadian();
 

@@ -50,16 +50,12 @@ void reshape(int w, int h){
 
   if (h == 0) h = 1;                // To prevent divide by 0
     aspect = (GLfloat)w / (GLfloat)h;
-
-  // glMatrixMode( GL_PROJECTION );
-  // glLoadIdentity();
-  // glOrtho(-aspect, aspect, -1, 1, -1.0f, 1.0f);
 }
 
 void update()
 {
     if(angle > 360)
-      angle =0;
+      angle = 0;
     angle += 1;
 }
 
@@ -161,10 +157,10 @@ void render()
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(50.0, 1.0, 3.0, 30.0);
-    //glTranslatef(0,0,z);
-    gluLookAt(2.5,  1.5,  z, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+    glTranslatef(0,0,-5);
+    gluLookAt(2.5,  1.5,  z, 0.0, z, 0.0, 0.0, 1.0, 0.0);
     glColor3f(1,1,1);
-    glutWireTorus(0.5,2,20,20);
+    glutWireTorus(0.05,0.2,20,20);
 
 
 

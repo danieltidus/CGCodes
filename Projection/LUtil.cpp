@@ -49,10 +49,6 @@ void reshape(int w, int h){
 
   if (h == 0) h = 1;                // To prevent divide by 0
     aspect = (GLfloat)w / (GLfloat)h;
-
-  // glMatrixMode( GL_PROJECTION );
-  // glLoadIdentity();
-  // glOrtho(-aspect, aspect, -1, 1, -1.0f, 1.0f);
 }
 
 void update()
@@ -162,7 +158,7 @@ void render()
     glViewport( SCREEN_WIDTH / proportion, SCREEN_HEIGHT / proportion, SCREEN_WIDTH / proportion, SCREEN_HEIGHT / proportion );
     glMatrixMode( GL_PROJECTION );
     glLoadIdentity();
-    glFrustum(aspect*bottom, aspect*top*2, bottom, top, near, far);
+    glFrustum(aspect*bottom*2, aspect*top*2, bottom*1.5, top, near, far);
     glTranslatef(0,0,-1);
     drawScene(0,0,0,1,1,1);
 
